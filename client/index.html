@@ -1,0 +1,75 @@
+<!doctype html>
+
+<head>
+    <title>權慧櫃台資訊系統</title>
+    <link href="index.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- 標題區域 -->
+    <div class="title-bar">
+        <h1>
+            權慧櫃台資訊系統
+        </h1>
+        <div class="version">
+            <a>Version 0.0.0 by Jonathan Tsai</a>
+        </div>
+    </div>
+    <!-- 左側欄位 -->
+    <div id="side" class="side">
+        <h2 id="calender">
+            月曆
+        </h2>
+        <h2 id="roll_call">
+            點名
+        </h2>
+        <h2 id="search">
+            搜尋
+        </h2>
+        <h2 id="data_list">
+            資料列表
+        </h2>
+        <h2 id="add_data" onclick="add_data_main_page()">
+            新增資料
+        </h2>
+        <h2>
+            變更資料
+        </h2>
+        <h2 id="class_event">
+            課堂異動
+        </h2>
+    </div>
+    <!-- 主畫面、資料顯示區域 -->
+    <div id="show" class="show">
+
+    </div>
+    <!-- 訊息區域 -->
+    <div id="message_box" class="message">
+        <h3>
+            提示訊息：<a id="message">您好，歡迎來到權慧櫃台資訊系統。</a>
+        </h3>
+    </div>
+
+    <!-- 以下為各項功能細節 -->
+
+    <div class="null">
+
+        <!-- 新增資料 -->
+        <div id="add_data_selection" class="list_box">
+            <h1>新增資料</h1>
+            <h1>請選擇要新增的資料類別：</h1>
+            <h2 onclick="fill_student_data()">新增學生資料</h2>
+            <h2>新增課堂資料</h2>
+            <h2>新增老師資料</h2>
+        </div>
+        <!-- 新增學生資料 -->
+
+    </div>
+
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script> -->
+    <script src="index.js"></script>
+    <script src="add_data.js"></script>
+    <script src="message.js"></script>
+</body>
