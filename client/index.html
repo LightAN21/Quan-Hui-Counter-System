@@ -1,7 +1,7 @@
 <!doctype html>
 
 <head>
-    <title>權慧櫃台資訊系統</title>
+    <title>權慧資訊系統</title>
     <link href="index.css" type="text/css" rel="stylesheet" />
 </head>
 
@@ -9,23 +9,25 @@
     <!-- 標題區域 -->
     <div class="title-bar">
         <h1>
-            權慧櫃台資訊系統
+            權慧資訊系統
         </h1>
         <div class="version">
-            <a>Version 0.0.0 by Jonathan Tsai</a>
+            <a>Version 0.0.1 by Jonathan Tsai</a>
         </div>
     </div>
     <!-- 左側欄位 -->
     <div id="side" class="side">
-        <h2 id="calender">
-            月曆
-        </h2>
-        <h2 id="roll_call">
-            點名
-        </h2>
-        <h2 id="search">
+        <h2 id="search" onclick="search_page()">
             搜尋
         </h2>
+        <h2 id="roll_call">
+            點名/堂數
+        </h2>
+        <!-- 
+            <h2 id="calender">
+                月曆
+            </h2>
+         -->
         <h2 id="data_list">
             資料列表
         </h2>
@@ -46,30 +48,115 @@
     <!-- 訊息區域 -->
     <div id="message_box" class="message">
         <h3>
-            提示訊息：<a id="message">您好，歡迎來到權慧櫃台資訊系統。</a>
+            訊息提示：<a id="message">您好，歡迎來到權慧資訊系統。輸入姓名或課堂名稱可進行搜尋。</a>
         </h3>
     </div>
 
     <!-- 以下為各項功能細節 -->
 
     <div class="null">
+        <div id="not_reaady" class="list_box">
+            <h1>功能尚未開啟。</h1>
+        </div>
+
+        <!-- 搜尋 -->
+        <div id="search_data" class="list_box">
+            <h1>搜尋資料：</h1>
+            <form action="">
+                <label for="search"></label>
+                <input list="search_list" type="text" name="search" id="search" required>
+                <datalist id="search_list">
+                    <option></option>
+                    <option value="學生"></option>
+                    <option value="老師"></option>
+                    <option value="課堂"></option>
+                    <option value="一對一課堂"></option>
+                    <option value="一對二課堂"></option>
+                    <option value="國文一對一"></option>
+                    <option value="英文一對一"></option>
+                    <option value="數學一對一"></option>
+                    <option value="自然一對一"></option>
+                    <option value="理化一對一"></option>
+                    <option value="國文一對二"></option>
+                    <option value="英文一對二"></option>
+                    <option value="數學一對二"></option>
+                    <option value="自然一對二"></option>
+                    <option value="理化一對二"></option>
+                    <option value="團班課堂"></option>
+                    <option value="國文團班"></option>
+                    <option value="英文團班"></option>
+                    <option value="數學團班"></option>
+                    <option value="自然團班"></option>
+                    <option value="理化團班"></option>
+                </datalist>
+                <button>搜尋</button>
+            </form>
+        </div>
 
         <!-- 新增資料 -->
         <div id="add_data_selection" class="list_box">
-            <h1>新增資料</h1>
-            <h1>請選擇要新增的資料類別：</h1>
-            <h2 onclick="fill_student_data()">新增學生資料</h2>
-            <h2>新增課堂資料</h2>
-            <h2>新增老師資料</h2>
+            <h1>　請選擇資料類別：</h1>
+            <h2 onclick="fill_student_data()">新增學生</h2>
+            <h2>新增老師</h2>
+            <h2>新增課堂</h2>
         </div>
         <!-- 新增學生資料 -->
-
+        <div id="add_student" class="list_box">
+            <h1>　新增學生資料：</h1>
+            <div id="student_from" class="fill_form">
+                <form action="">
+                    <label for="student_name">學生姓名：</label>
+                    <input type="text" name="student_name" id="student_name" required>*
+                    <br>
+                    <label for="grade">年級　　：</label>
+                    <select name="grade" id="grade" required>
+                        <option></option>
+                        <option value="1">小學一年級</option>
+                        <option value="2">小學二年級</option>
+                        <option value="3">小學三年級</option>
+                        <option value="4">小學四年級</option>
+                        <option value="5">小學五年級</option>
+                        <option value="6">小學六年級</option>
+                        <option value="7">國中一年級</option>
+                        <option value="8">國中二年級</option>
+                        <option value="9">國中三年級</option>
+                        <option value="10">高中一年級</option>
+                        <option value="11">高中二年級</option>
+                        <option value="12">高中三年級</option>
+                    </select>*
+                    <br>
+                    <label for="class_type">課程類型：</label>
+                    <select name="class_type" id="class_type" required>
+                        <option></option>
+                        <option value="國文一對一">國文一對一</option>
+                    <option value="英文一對一">英文一對一</option>
+                    <option value="數學一對一">數學一對一</option>
+                    <option value="自然一對一">自然一對一</option>
+                    <option value="理化一對一">理化一對一</option>
+                    <option value="國文一對二">國文一對二</option>
+                    <option value="英文一對二">英文一對二</option>
+                    <option value="數學一對二">數學一對二</option>
+                    <option value="自然一對二">自然一對二</option>
+                    <option value="理化一對二">理化一對二</option>
+                    <option value="國文團班">國文團班</option>
+                    <option value="英文團班">英文團班</option>
+                    <option value="數學團班">數學團班</option>
+                    <option value="自然團班">自然團班</option>
+                    <option value="理化團班">理化團班</option>
+                    </select>
+                    <br>
+                    <label for="teacher">上課老師：</label>
+                    <input type="text" name="teacher" id="teacher" required>
+                    <br>
+                </form>
+            </div>
+        </div>
     </div>
-
 
     <script src="jquery-3.3.1.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script> -->
     <script src="index.js"></script>
     <script src="add_data.js"></script>
+    <script src="search_data.js"></script>
     <script src="message.js"></script>
 </body>

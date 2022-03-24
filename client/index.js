@@ -3,22 +3,23 @@ var teacher;
 var student;
 var show = document.getElementById("show");
 
-$(document).ready(function() {
-    $.get('/get_class_list', function(class_data) {
-        classes = class_data;
-        console.log("classes:");
-        console.log(classes);
-    });
-    $.get('/get_teacher_list', function(teacher_data) {
-        teacher = teacher_data;
-        console.log("teacher:");
-        console.log(teacher);
-    });
-    $.get('/get_student_list', function(student_data) {
-        student = student_data;
-        console.log("student:");
-        console.log(student);
-    });
+$(document).ready(function () {
+  $.get("/get_class_list", function (class_data) {
+    classes = class_data;
+    console.log("classes:");
+    console.log(classes);
+  });
+  $.get("/get_teacher_list", function (teacher_data) {
+    teacher = teacher_data;
+    console.log("teacher:");
+    console.log(teacher);
+  });
+  $.get("/get_student_list", function (student_data) {
+    student = student_data;
+    console.log("student:");
+    console.log(student);
+  });
+  show.innerHTML = document.getElementById("search_data").outerHTML;
 });
 
 // function read_data() {
